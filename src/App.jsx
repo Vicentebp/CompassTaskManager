@@ -1,6 +1,9 @@
 import "./App.css";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import getLocation from "./services/getLocation";
 import getWeather from "./services/getWeather";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
   const callLocation = async () => {
@@ -8,9 +11,20 @@ function App() {
     const weather = await getWeather(location.lat, location.lon);
     console.log(weather);
   };
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+  ]);
+
   return (
     <>
-      <button onClick={callLocation}>tosco</button>
+      <RouterProvider router={router} />
     </>
   );
 }
