@@ -1,6 +1,5 @@
-import "./App.css";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 import getLocation from "./services/getLocation";
 import getWeather from "./services/getWeather";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

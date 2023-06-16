@@ -5,6 +5,7 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
+  background: ${(props) => (props.$home ? "white" : "transparent")};
 `;
 
 export const LayoutPageContainer = styled.div`
