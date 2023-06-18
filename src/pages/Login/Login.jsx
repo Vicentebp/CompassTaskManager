@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoginLayout from "../../component/loginLayout/LoginLayout";
-import { InputCamp, InputSubmit, InputWrapper, LoginForm, SubTitleTxt, TitleTxt, TxtWrapper } from "./style";
+import { InputCamp, InputSubmit, InputWrapper, LoginForm, SubTitleTxt, TitleTxt, TxtWrapper, YellowText } from "./style";
 import { useNavigate } from "react-router-dom";
 import getUser from "../../services/getUser";
 
@@ -14,11 +14,14 @@ const Login = () => {
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
-    const user = getUser(formJson.user);
-    console.log(user);
-    if (user.password === formJson.password) {
-      navigate("/home");
-      setLogin(true);
+    try {
+      const user = getUser(formJson.user);
+      if (user.password === formJson.password) {
+        navigate("/home");
+        setLogin(true);
+      }
+    } catch (error) {
+      setLogin(false);
     }
   };
 
@@ -34,10 +37,10 @@ const Login = () => {
             <label>Login</label>
             <InputCamp type="email" name="user" required placeholder="user name" />
             <InputCamp type="password" name="password" required placeholder="password" />
+            {login || <YellowText>Wow, invalid username or password. Please, try again!</YellowText>}
+            <InputSubmit type="submit" value="Log In" />
+            <InputSubmit type="button" onClick={() => navigate("/register")} value="Register" />
           </InputWrapper>
-          <InputSubmit type="submit" value="Log In" />
-          {login || <span>Wow, invalid username or password. Please, try again!</span>}
-          <InputSubmit type="button" onClick={() => navigate("/register")} value="Register" />
         </LoginForm>
       </div>
     </LoginLayout>

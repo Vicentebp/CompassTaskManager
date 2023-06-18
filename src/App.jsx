@@ -1,6 +1,6 @@
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-//import Home from "./pages/Home/style";
+import Home from "./pages/Home/Home";
 // import getLocation from "./services/getLocation";
 // import getWeather from "./services/getWeather";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -20,10 +20,10 @@ function App() {
       path: "/register",
       element: <Register />,
     },
-    // {
-    //   path: "/home",
-    //   element: <Home />,
-    // },
+    {
+      path: "/home",
+      element: <Home />,
+    },
   ]);
 
   return (

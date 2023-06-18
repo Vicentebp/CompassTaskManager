@@ -68,3 +68,14 @@ export const InputSubmit = styled.input`
   font-size: 32px;
   line-height: 40px;
 `;
+
+export const YellowText = styled.span`
+  margin: 0 auto 0 auto;
+  text-align: center;
+  width: 283px;
+  height: 40px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #e9b425;
+`;
