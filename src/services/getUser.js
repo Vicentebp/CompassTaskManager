@@ -10,4 +10,3 @@ const getUser = (email) => {
   throw "Email not registred";
 };
 export default getUser;
-b;
