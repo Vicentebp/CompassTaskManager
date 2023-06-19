@@ -19,6 +19,7 @@ const Login = () => {
       if (user.password === formJson.password) {
         navigate("/home");
         setLogin(true);
+        localStorage.setItem("auth", user.email);
       }
     } catch (error) {
       setLogin(false);
