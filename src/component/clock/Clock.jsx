@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ClockTxt, ClockWrapper } from "./style";
 
-function Clock() {
+const Clock = () => {
   const options = { year: "numeric", month: "long", day: "numeric" };
   const [date, setDate] = useState(new Date());
   const refreshClock = () => {
@@ -19,5 +19,5 @@ function Clock() {
       <ClockTxt>{date.toLocaleDateString("en-US", options)}</ClockTxt>
     </ClockWrapper>
   );
-}
+};
 export default Clock;

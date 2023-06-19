@@ -5,11 +5,11 @@ export const ClockWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  min-width: 200px;
   gap: 15px;
 `;
 
 export const ClockTxt = styled.span`
-  font-family: "Mulish";
   line-height: 20px;
   color: #3b3e45;
   font-weight: ${(props) => (props.$mainTxt ? "700" : "400")};

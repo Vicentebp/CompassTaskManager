@@ -4,22 +4,24 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  font-family: "Mulish";
 `;
 export const HomeHeader = styled.header`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100vw;
   height: 130px;
   gap: 190px;
   background: #ffffff;
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 4px 4px 70px rgba(0, 0, 0, 0.25);
+  padding-right: 23px;
+  box-sizing: border-box;
 `;
 
 export const HomeBody = styled.div`
   width: 100vw;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 4px 4px 70px rgba(0, 0, 0, 0.25);
+  height: 950px;
 `;
 
 export const Flag = styled.div`
@@ -39,4 +41,30 @@ export const FlagTxt = styled.span`
   line-height: 20px;
   font-weight: ${(props) => (props.$mainTxt ? "700" : "400")};
   font-size: ${(props) => (props.$mainTxt ? "22px" : "14px")};
+`;
+
+export const LogOutBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 21px;
+  gap: 26px;
+  align-items: end;
+`;
+
+export const LogOutBtns = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Img = styled.img`
+  width: 21px;
+  height: 21px;
+`;
+
+export const BackgroundImg = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 `;

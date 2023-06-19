@@ -3,8 +3,11 @@ import LoginLayout from "../../component/loginLayout/LoginLayout";
 import createUser from "../../services/createUser";
 import { InputCamp, SubTitleTxt, TitleTxt, TxtWrapper } from "../Login/style";
 import { InputSubmit, InputWrapper, LabelText, RegisterForm, RegisterLabel } from "./style";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const registerSubmit = (e) => {
     try {
       e.preventDefault();
@@ -14,6 +17,7 @@ const Register = () => {
       if (formJson.password === formJson.passwordVerify) {
         delete formJson.passwordVerify;
         createUser(formJson);
+        navigate("/");
       }
     } catch (error) {
       alert(error);
@@ -24,8 +28,6 @@ const Register = () => {
   const passPut = (e) => {
     setPass(e.target.value);
   };
-  console.log(pass);
-
   return (
     <LoginLayout>
       <div>

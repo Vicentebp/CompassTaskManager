@@ -13,9 +13,6 @@ export const LayoutPageContainer = styled.div`
   flex-direction: column;
   flex: 1;
   align-items: center;
-
-  font-family: "Mulish";
-  font-style: normal;
   color: #e0e0e0;
 
   background: linear-gradient(180deg, #33383d 0%, #1c1d20 100%);
