@@ -20,7 +20,7 @@ const Login = () => {
         navigate("/home");
         setLogin(true);
         localStorage.setItem("auth", user.email);
-      }
+      } else setLogin(false);
     } catch (error) {
       setLogin(false);
     }
