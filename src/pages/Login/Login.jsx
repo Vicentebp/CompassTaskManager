@@ -39,8 +39,8 @@ const Login = () => {
         <LoginForm onSubmit={loginSubmit}>
           <InputWrapper>
             <label>Login</label>
-            <InputCamp type="email" name="user" required placeholder="user name" />
-            <InputCamp type="password" name="password" required placeholder="password" />
+            <InputCamp $invalid={login} type="email" name="user" required placeholder="user name" />
+            <InputCamp $invalid={login} type="password" name="password" required placeholder="password" />
             {login || <YellowText>Wow, invalid username or password. Please, try again!</YellowText>}
             <InputSubmit type="submit" value="Log In" />
             <InputSubmit type="button" onClick={() => navigate("/register")} value="Register" />

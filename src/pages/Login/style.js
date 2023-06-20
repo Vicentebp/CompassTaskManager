@@ -41,7 +41,7 @@ export const InputCamp = styled.input`
   height: 60px;
   box-sizing: border-box;
   background: #26292c;
-  border: 1px solid #ffffff;
+  border: ${(props) => (props.$invalid ? "1px solid #ffffff" : "1px solid #e9b425")};
   border-radius: 50px;
   padding: 20px 0 20px 20px;
   color: #e0e0e0;
@@ -51,6 +51,7 @@ export const InputCamp = styled.input`
   }
   &:invalid::-webkit-datetime-edit {
     color: #e0e0e0;
+    border: #e9b425;
   }
 `;
 
