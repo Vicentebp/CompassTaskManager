@@ -41,7 +41,7 @@ export const InputCamp = styled.input`
   height: 60px;
   box-sizing: border-box;
   background: #26292c;
-  border: ${(props) => (props.$invalid ? "1px solid #ffffff" : "1px solid #e9b425")};
+  border: ${(props) => (props.$invalid ? "1px solid #e9b425" : "1px solid #ffffff")};
   border-radius: 50px;
   padding: 20px 0 20px 20px;
   color: #e0e0e0;
