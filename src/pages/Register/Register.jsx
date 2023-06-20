@@ -50,7 +50,7 @@ const Register = () => {
             </RegisterLabel>
             <RegisterLabel>
               <LabelText>Birth date</LabelText>
-              <InputCamp type="date" name="birthDate" autoComplete="none" required placeholder="MM/DD/YYYY" />
+              <InputCamp type="date" name="birthDate" autoComplete="none" required placeholder="MM/DD/YYYY" max="2005-01-01" />
             </RegisterLabel>
             <RegisterLabel>
               <LabelText>Country</LabelText>
