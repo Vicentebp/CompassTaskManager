@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../../component/homeHeader/HomeHeader";
 import HomeLayout from "../../component/homeLayout/HomeLayout";
 import createTask from "../../services/createTask";
-import { DeleteBtn, HomeBody, InputSubmit, InputTxt, Select, TaskContainer, TaskTime, TaskTxt, TasksContainer, Text } from "./style";
+import { DeleteAllBtn, DeleteBtn, FormContainer, HomeBody, InputSubmit, InputTxt, Select, TaskContainer, TaskTime, TaskTxt, TasksContainer, Text } from "./style";
 import getUserTasks from "../../services/getUserTasks";
 import isLogged from "../../services/isLogged";
 import { useNavigate } from "react-router-dom";
@@ -96,7 +96,7 @@ const Home = () => {
       <Header />
       <HomeLayout />
       <HomeBody>
-        <div>
+        <FormContainer>
           <form onSubmit={taskSubmit}>
             <InputTxt type="text" name="taskName" placeholder="Task or issue" required autoComplete="none" />
             <Select id="day" name="day" required>
@@ -115,8 +115,8 @@ const Home = () => {
             </Select>
             <InputSubmit type="submit" value="+ Add to calendar" />
           </form>
-          <button onClick={() => handleDelete()}>- Delete All</button>
-        </div>
+          <DeleteAllBtn onClick={() => handleDelete()}>- Delete All</DeleteAllBtn>
+        </FormContainer>
         <WeekDays passValue={getValue} />
         <TasksContainer>
           {tasks &&

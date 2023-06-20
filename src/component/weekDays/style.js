@@ -23,6 +23,7 @@ export const WeekDay = styled.button`
   align-items: center;
   width: 240px;
   height: 33px;
+  font-style: "Mulish";
   font-weight: 600;
   font-size: 20px;
   width: ${(props) => (props.$selected ? "290px" : "240px")};

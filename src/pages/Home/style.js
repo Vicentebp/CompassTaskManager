@@ -37,6 +37,7 @@ export const InputSubmit = styled.input`
   background: #00ba88;
   border-radius: 10px;
   border: none;
+  margin-left: 570px;
 `;
 
 export const TaskContainer = styled.div`
@@ -107,4 +108,30 @@ export const DeleteBtn = styled.button`
 
 export const Text = styled.span`
   flex: 1;
+`;
+
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-left: 24px;
+  margin-top: 35px;
+`;
+
+export const DeleteAllBtn = styled.button`
+  margin-left: 24px;
+  margin-right: 23px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+  width: 200px;
+  height: 44px;
+  border: none;
+  background: #ff3d1f;
+  border-radius: 10px;
 `;

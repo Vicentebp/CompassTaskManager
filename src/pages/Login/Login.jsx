@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginLayout from "../../component/loginLayout/LoginLayout";
 import { InputCamp, InputSubmit, InputWrapper, LoginForm, SubTitleTxt, TitleTxt, TxtWrapper, YellowText } from "./style";
 import { useNavigate } from "react-router-dom";
 import getUser from "../../services/getUser";
+import isLogged from "../../services/isLogged";
 
 const Login = () => {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    if (isLogged()) navigate("/home");
+  }, []);
   const [login, setLogin] = useState(true);
 
   const loginSubmit = (e) => {

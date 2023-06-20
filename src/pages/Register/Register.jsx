@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginLayout from "../../component/loginLayout/LoginLayout";
 import createUser from "../../services/createUser";
 import { InputCamp, SubTitleTxt, TitleTxt, TxtWrapper } from "../Login/style";
 import { InputSubmit, InputWrapper, LabelText, RegisterForm, RegisterLabel } from "./style";
 import { useNavigate } from "react-router-dom";
+import isLogged from "../../services/isLogged";
 
 const Register = () => {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    if (isLogged()) navigate("/home");
+  }, []);
   const registerSubmit = (e) => {
     try {
       e.preventDefault();
