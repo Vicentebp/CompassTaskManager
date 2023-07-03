@@ -1,6 +1,5 @@
 import { LayoutBackground, LayoutCompassImg, LayoutPageContainer, LayoutWrapper } from "./style";
 import compasso from "../../assets/compasso.png";
-import { useNavigate } from "react-router-dom";
 
 const LoginLayout = (props) => {
   const redirect = () => {

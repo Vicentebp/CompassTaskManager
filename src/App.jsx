@@ -3,6 +3,7 @@ import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,9 +22,9 @@ function App() {
   ]);
 
   return (
-    <>
+    <AuthProvider router={router}>
       <RouterProvider router={router} />
-    </>
+    </AuthProvider>
   );
 }
 

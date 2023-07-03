@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../../component/homeHeader/HomeHeader";
 import HomeLayout from "../../component/homeLayout/HomeLayout";
 import createTask from "../../services/createTask";
 import { DeleteAllBtn, DeleteBtn, FormContainer, HomeBody, InputSubmit, InputTxt, Select, TaskContainer, TaskTime, TaskTxt, TasksContainer, Text } from "./style";
 import getUserTasks from "../../services/getUserTasks";
-import isLogged from "../../services/isLogged";
-import { useNavigate } from "react-router-dom";
 import WeekDays from "../../component/weekDays/WeekDays";
 import deleteTask from "../../services/deleteTask";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const horarios = Array.from(Array(48).keys()).map((index) => {
   const minuto = index % 2 ? "30" : "00";
@@ -18,11 +17,10 @@ const horarios = Array.from(Array(48).keys()).map((index) => {
 });
 
 const Home = () => {
-  const navigate = useNavigate();
-
+  const { user } = useContext(AuthContext);
+  console.log(user);
   useEffect(() => {
-    if (!isLogged()) navigate("/");
-    else getTasks(selectedDay);
+    getTasks(selectedDay);
   }, []);
 
   const [tasks, setTasks] = useState(null);
@@ -42,7 +40,9 @@ const Home = () => {
         taskName: formJson.taskName,
         day: formJson.day,
         time: date.toISOString(),
+        email: user,
       });
+
       getTasks(selectedDay);
     } catch (error) {
       alert(error);
@@ -51,7 +51,7 @@ const Home = () => {
 
   const getTasks = (day) => {
     try {
-      const userTasks = getUserTasks()
+      const userTasks = getUserTasks(user.email)
         .filter((item) => item.day === day)
         .sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime())
         .map((item) => {

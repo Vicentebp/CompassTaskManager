@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LoginLayout from "../../component/loginLayout/LoginLayout";
 import { InputCamp, InputSubmit, InputWrapper, LoginForm, SubTitleTxt, TitleTxt, TxtWrapper, YellowText } from "./style";
 import { useNavigate } from "react-router-dom";
-import getUser from "../../services/getUser";
-import isLogged from "../../services/isLogged";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    if (isLogged()) navigate("/home");
-  }, []);
-  const [login, setLogin] = useState(true);
+
+  const [loginError, setLoginError] = useState(false);
+  const { login } = useContext(AuthContext);
 
   const loginSubmit = (e) => {
     e.preventDefault();
@@ -18,14 +16,10 @@ const Login = () => {
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
     try {
-      const user = getUser(formJson.user);
-      if (user.password === formJson.password) {
-        navigate("/home");
-        setLogin(true);
-        localStorage.setItem("auth", user.email);
-      } else setLogin(false);
+      login(formJson.user, formJson.password);
+      navigate("/home");
     } catch (error) {
-      setLogin(false);
+      setLoginError(true);
     }
   };
 
@@ -39,9 +33,9 @@ const Login = () => {
         <LoginForm onSubmit={loginSubmit}>
           <InputWrapper>
             <label>Login</label>
-            <InputCamp $invalid={!login} type="email" name="user" required placeholder="user name" />
-            <InputCamp $invalid={!login} type="password" name="password" required placeholder="password" />
-            {login || <YellowText>Wow, invalid username or password. Please, try again!</YellowText>}
+            <InputCamp $invalid={loginError} type="email" name="user" required placeholder="user name" />
+            <InputCamp $invalid={loginError} type="password" name="password" required placeholder="password" />
+            {loginError && <YellowText>Wow, invalid username or password. Please, try again!</YellowText>}
             <InputSubmit type="submit" value="Log In" />
             <InputSubmit type="button" onClick={() => navigate("/register")} value="Register" />
           </InputWrapper>

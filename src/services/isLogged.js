@@ -1,5 +1,4 @@
 const isLogged = () => {
-  if (localStorage.getItem("auth")) return true;
-  return false;
+  return !!localStorage.getItem("auth");
 };
 export default isLogged;
